@@ -151,6 +151,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuizAppDbContext.cs" />
+    <Compile Include="Repositories\Abstract\IQuestionRepository.cs" />
     <Compile Include="Services\Abstract\IQuestionService.cs" />
     <Compile Include="Services\Concrete\QuestionService.cs" />
   </ItemGroup>
@@ -194,7 +196,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Repositories\Abstract\" />
     <Folder Include="Repositories\Concrete\" />
   </ItemGroup>
   <ItemGroup>
