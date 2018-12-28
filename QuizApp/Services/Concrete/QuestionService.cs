@@ -11,6 +11,11 @@ namespace QuizApp.Services.Concrete
     {
         public bool ContainsCorrectAnswer(Question question)
         {
+            if (question == null)
+            {
+                throw new ArgumentNullException(nameof(question), "Question is null!");
+            }
+
             foreach (var q in question.Answers)
             {
                 if (string.Equals(q, question.CorrectAnswer, StringComparison.CurrentCultureIgnoreCase))

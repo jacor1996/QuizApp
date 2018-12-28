@@ -39,11 +39,9 @@ namespace QuizAppTests
                 }
             };
 
-            bool expectedResult = true;
-
             bool result = _questionService.ContainsCorrectAnswer(question);
 
-            Assert.AreEqual(expectedResult, result);
+            Assert.AreEqual(true, result);
         }
 
         [Test]
@@ -54,7 +52,7 @@ namespace QuizAppTests
                 Id = 1,
                 Text = "How many fingers do people have?",
                 CorrectAnswer = "Twenty",
-                Answers = new List<string>()
+                Answers = new List<string>
                 {
                     "One",
                     "Five",
@@ -63,11 +61,21 @@ namespace QuizAppTests
                 }
             };
 
-            bool expectedResult = false;
-
             bool result = _questionService.ContainsCorrectAnswer(question);
 
-            Assert.AreEqual(expectedResult, result);
+            Assert.AreEqual(false, result);
+        }
+
+        [Test]
+        public void ContainsCorrectAnswer_Null_ThrowsArgumentNullException()
+        {
+            Question question = null;
+
+            var ex = Assert.Throws<ArgumentNullException>(
+                () => _questionService.ContainsCorrectAnswer(question)
+            );
+
+            Assert.AreEqual(typeof(ArgumentNullException), ex.GetType());
         }
     }
 }
