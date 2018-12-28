@@ -29,13 +29,13 @@ namespace QuizAppTests
             {
                 Id = 1,
                 Text = "How many fingers do people have?",
-                CorrectAnswer = "Twenty",
-                Answers = new List<string>()
+                CorrectAnswer = new Answer { Text = "Twenty" },
+                Answers = new List<Answer>()
                 {
-                    "One",
-                    "Five",
-                    "Twenty",
-                    "Eleven"
+                    new Answer { Text = "One" },
+                    new Answer { Text = "Five" },
+                    new Answer { Text = "Twenty" },
+                    new Answer { Text = "Eleven" }
                 }
             };
 
@@ -51,13 +51,13 @@ namespace QuizAppTests
             {
                 Id = 1,
                 Text = "How many fingers do people have?",
-                CorrectAnswer = "Twenty",
-                Answers = new List<string>
+                CorrectAnswer = new Answer { Text = "Twenty" },
+                Answers = new List<Answer>()
                 {
-                    "One",
-                    "Five",
-                    "Six",
-                    "Eleven"
+                    new Answer { Text = "One" },
+                    new Answer { Text = "Five" },
+                    new Answer { Text = "Six" },
+                    new Answer { Text = "Eleven" }
                 }
             };
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using QuizApp.Entities;
@@ -18,7 +19,10 @@ namespace QuizApp.Repositories.Concrete
 
         public IEnumerable<Question> GetAll()
         {
-            return _context.Questions.ToList();
+            return _context.Questions
+                .Include(q => q.CorrectAnswer)
+                .Include(q => q.Answers)
+                .ToList();
         }
 
         public Question Get(int id)

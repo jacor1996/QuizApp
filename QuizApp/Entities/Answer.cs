@@ -6,16 +6,11 @@ using System.Web;
 
 namespace QuizApp.Entities
 {
-    public class Question : BaseModel
+    public class Answer : BaseModel
     {
         [Required]
-        [MinLength(5)]
+        [MinLength(1)]
         [MaxLength(256)]
         public string Text { get; set; }
-
-        [Required]
-        public Answer CorrectAnswer { get; set; }
-
-        public virtual ICollection<Answer> Answers { get; set; }
     }
 }

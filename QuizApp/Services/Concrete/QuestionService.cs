@@ -18,7 +18,7 @@ namespace QuizApp.Services.Concrete
 
             foreach (var q in question.Answers)
             {
-                if (string.Equals(q, question.CorrectAnswer, StringComparison.CurrentCultureIgnoreCase))
+                if (string.Equals(q.Text, question.CorrectAnswer.Text, StringComparison.CurrentCultureIgnoreCase))
                 {
                     return true;
                 }
