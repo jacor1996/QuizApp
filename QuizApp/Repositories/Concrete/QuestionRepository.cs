@@ -27,7 +27,10 @@ namespace QuizApp.Repositories.Concrete
 
         public Question Get(int id)
         {
-            throw new NotImplementedException();
+            return _context.Questions.Where(q => q.Id == id)
+                .Include(q => q.Answers)
+                .Include(q => q.CorrectAnswer)
+                .FirstOrDefault();
         }
 
         public void Insert(Question question)
