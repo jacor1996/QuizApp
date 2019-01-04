@@ -23,14 +23,14 @@ namespace QuizAppTests
         }
 
         [Test]
-        public void ContainsCorrectAnswer_ContainsCorrectAnswer_ReturnsTrue()
+        public void ShouldReturnTrueWhenQuestionContainsCorrectAnswer()
         {
             Question question = new Question
             {
                 Id = 1,
                 Text = "How many fingers do people have?",
                 CorrectAnswer = new Answer { Text = "Twenty" },
-                Answers = new List<Answer>()
+                Answers = new List<Answer>
                 {
                     new Answer { Text = "One" },
                     new Answer { Text = "Five" },
@@ -45,14 +45,14 @@ namespace QuizAppTests
         }
 
         [Test]
-        public void ContainsCorrectAnswer_DoesNotContainCorrectAnswer_ReturnsFalse()
+        public void ShouldReturnFalseWhenQuestionDoesNotContainCorrectAnswer()
         {
             Question question = new Question
             {
                 Id = 1,
                 Text = "How many fingers do people have?",
                 CorrectAnswer = new Answer { Text = "Twenty" },
-                Answers = new List<Answer>()
+                Answers = new List<Answer>
                 {
                     new Answer { Text = "One" },
                     new Answer { Text = "Five" },
@@ -67,7 +67,7 @@ namespace QuizAppTests
         }
 
         [Test]
-        public void ContainsCorrectAnswer_Null_ThrowsArgumentNullException()
+        public void ShouldThrowArgumentNullExceptionWhenQuestionIsNull()
         {
             Question question = null;
 

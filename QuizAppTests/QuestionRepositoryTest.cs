@@ -146,7 +146,7 @@ namespace QuizAppTests
         }
 
         [Test]
-        public void ShouldAddQuestionToRepositoryIfIsValidAndIdDoesNotExist()
+        public void ShouldInsertQuestionToRepositoryIfIsValidAndIdDoesNotExist()
         {          
             Question question = new Question
             {
@@ -161,12 +161,65 @@ namespace QuizAppTests
                     new Answer {Text = "6"}
                 }
             };
-            _mock.Setup(x => x.Insert(question));
+            _mock.Setup(x => x.GetAll()).Returns(_questions);
+            _mock.Setup(x => x.Insert(It.IsAny<Question>()));
+
             _questionRepository = _mock.Object;
 
+            int questionsBeforeInsertion = _questionRepository.GetAll().Count();
+            Assert.AreEqual(4, questionsBeforeInsertion);
+
+            Assert.False(_questionRepository.GetAll().Contains(question));
+            Assert.IsNotNull(question);
             _questionRepository.Insert(question);
 
-            _mock.Verify(x => x.Insert(question), Times.Once);
+            var questionsAfterInsertionList = _questions;
+            questionsAfterInsertionList.Add(question);
+
+            _mock.Setup(x => x.GetAll()).Returns(questionsAfterInsertionList);
+
+            int questionsAfterInsertion = _questionRepository.GetAll().Count();
+            Assert.AreEqual(5, questionsAfterInsertion);
+
+            Assert.AreEqual(questionsBeforeInsertion + 1, questionsAfterInsertion);
+        }
+
+        [Test]
+        public void ShouldThrowArgumentNullExceptionWhenInsertingNullQuestionToRepository()
+        {
+            Question question = null;
+            _mock.Setup(x => x.GetAll()).Returns(_questions);
+            _mock.Setup(x => x.Insert(null)).Throws<ArgumentNullException>();
+
+            _questionRepository = _mock.Object;
+
+            int numberOfQuestionsBefore = _questionRepository.GetAll().Count();
+            Assert.AreEqual(4, numberOfQuestionsBefore);
+
+            Assert.IsNull(question);
+            var ex = Assert.Throws<ArgumentNullException>(
+                () => _questionRepository.Insert(question));
+
+            Assert.AreEqual(typeof(ArgumentNullException), ex.GetType());
+        }
+
+        [Test]
+        public void ShouldNotInsertQuestionWhenSpecifiedIdAlreadyExists()
+        {
+            Question question = _questions.ElementAt(0);
+            _mock.Setup(x => x.GetAll()).Returns(_questions);
+            _mock.Setup(x => x.Insert(It.IsAny<Question>()));
+
+            Assert.AreEqual(1, question.Id);
+
+            _questionRepository = _mock.Object;
+
+            int numberOfQuestionsBefore = _questionRepository.GetAll().Count();
+            _questionRepository.Insert(question);
+
+            int numberOfQuestionsAfter = _questionRepository.GetAll().Count();
+
+            Assert.AreEqual(numberOfQuestionsBefore, numberOfQuestionsAfter);
         }
     }
 }

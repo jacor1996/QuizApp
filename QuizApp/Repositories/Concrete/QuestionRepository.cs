@@ -35,6 +35,9 @@ namespace QuizApp.Repositories.Concrete
 
         public void Insert(Question question)
         {
+            if (question == null)
+                throw new ArgumentNullException();
+
             if (Get(question.Id) == null)
             {
                 _context.Questions.Add(question);
