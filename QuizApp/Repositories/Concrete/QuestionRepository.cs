@@ -35,7 +35,11 @@ namespace QuizApp.Repositories.Concrete
 
         public void Insert(Question question)
         {
-            throw new NotImplementedException();
+            if (Get(question.Id) == null)
+            {
+                _context.Questions.Add(question);
+                _context.SaveChanges();
+            }
         }
 
         public void Edit(Question question)

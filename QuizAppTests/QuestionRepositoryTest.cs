@@ -144,5 +144,29 @@ namespace QuizAppTests
 
             Assert.AreEqual(expectedSize, size);
         }
+
+        [Test]
+        public void ShouldAddQuestionToRepositoryIfIsValidAndIdDoesNotExist()
+        {          
+            Question question = new Question
+            {
+                Id = 5,
+                Text = "2 + 2 = ?",
+                CorrectAnswer = new Answer { Text = "4" },
+                Answers = new List<Answer>
+                {
+                    new Answer {Text = "2"},
+                    new Answer {Text = "4"},
+                    new Answer {Text = "5"},
+                    new Answer {Text = "6"}
+                }
+            };
+            _mock.Setup(x => x.Insert(question));
+            _questionRepository = _mock.Object;
+
+            _questionRepository.Insert(question);
+
+            _mock.Verify(x => x.Insert(question), Times.Once);
+        }
     }
 }
