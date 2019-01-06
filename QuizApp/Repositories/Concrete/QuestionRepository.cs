@@ -52,7 +52,12 @@ namespace QuizApp.Repositories.Concrete
 
         public void Remove(int id)
         {
-            throw new NotImplementedException();
+            Question question = Get(id);
+            if (question != null)
+            {
+                _context.Questions.Remove(question);
+                _context.SaveChanges();
+            }
         }
     }
 }
