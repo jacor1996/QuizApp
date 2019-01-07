@@ -44,6 +44,9 @@ namespace QuizApp
 
             _kernel.Bind<IAnswerRepository>()
                 .To<AnswerRepository>();
+
+            _kernel.Bind<IAnswerService>()
+                .To<AnswerService>();
         }
     }
 }

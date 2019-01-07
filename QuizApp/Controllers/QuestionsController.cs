@@ -5,16 +5,19 @@ using System.Web;
 using System.Web.Mvc;
 using QuizApp.Entities;
 using QuizApp.Repositories.Abstract;
+using QuizApp.Services.Abstract;
 
 namespace QuizApp.Controllers
 {
     public class QuestionsController : Controller
     {
-        private IQuestionRepository _questionRepository;
+        private readonly IQuestionRepository _questionRepository;
+        private readonly IAnswerService _answerService;
 
-        public QuestionsController(IQuestionRepository questionRepository)
+        public QuestionsController(IQuestionRepository questionRepository, IAnswerService answerService)
         {
             _questionRepository = questionRepository;
+            _answerService = answerService;
         }
 
         // GET: Questions
@@ -26,12 +29,15 @@ namespace QuizApp.Controllers
 
         public ActionResult Create()
         {
+            ViewBag.AnswersSelectList = _answerService.GetAnswersSelectList();
             return View();
         }
 
         [HttpPost]
         public ActionResult Create(Question question)
         {
+            ViewBag.AnswersSelectList = _answerService.GetAnswersSelectList();
+
             if (ModelState.IsValid)
             {
                 _questionRepository.Insert(question);

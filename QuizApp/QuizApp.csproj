@@ -190,7 +190,9 @@
     <Compile Include="Repositories\Abstract\IQuestionRepository.cs" />
     <Compile Include="Repositories\Concrete\AnswerRepository.cs" />
     <Compile Include="Repositories\Concrete\QuestionRepository.cs" />
+    <Compile Include="Services\Abstract\IAnswerService.cs" />
     <Compile Include="Services\Abstract\IQuestionService.cs" />
+    <Compile Include="Services\Concrete\AnswerService.cs" />
     <Compile Include="Services\Concrete\QuestionService.cs" />
   </ItemGroup>
   <ItemGroup>
