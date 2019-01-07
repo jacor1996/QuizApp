@@ -33,11 +33,17 @@ namespace QuizApp
 
         public void AddBindings()
         {
+            _kernel.Bind<QuizAppDbContext>()
+                .ToSelf();
+
             _kernel.Bind<IQuestionRepository>()
                 .To<QuestionRepository>();
 
             _kernel.Bind<IQuestionService>()
                 .To<QuestionService>();
+
+            _kernel.Bind<IAnswerRepository>()
+                .To<AnswerRepository>();
         }
     }
 }

@@ -40,5 +40,17 @@ namespace QuizApp.Controllers
 
             return View(question);
         }
+
+        [HttpDelete]
+        public ActionResult Delete(int id)
+        {
+            if (_questionRepository.Get(id) != null)
+            {
+                _questionRepository.Remove(id);
+                return RedirectToAction("Index");
+            }
+
+            return HttpNotFound("Question with specified id does not exist!");
+        }
     }
 }

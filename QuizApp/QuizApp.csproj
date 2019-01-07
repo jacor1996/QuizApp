@@ -158,11 +158,37 @@
     <Compile Include="Migrations\201901041839176_Initial.Designer.cs">
       <DependentUpon>201901041839176_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901061925403_Changed answer model.cs" />
+    <Compile Include="Migrations\201901061925403_Changed answer model.Designer.cs">
+      <DependentUpon>201901061925403_Changed answer model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901061928339_Second migration.cs" />
+    <Compile Include="Migrations\201901061928339_Second migration.Designer.cs">
+      <DependentUpon>201901061928339_Second migration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901071809333_Added model validation.cs" />
+    <Compile Include="Migrations\201901071809333_Added model validation.Designer.cs">
+      <DependentUpon>201901071809333_Added model validation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901071819498_Changed model validation.cs" />
+    <Compile Include="Migrations\201901071819498_Changed model validation.Designer.cs">
+      <DependentUpon>201901071819498_Changed model validation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901071828425_Changed model validation 2.cs" />
+    <Compile Include="Migrations\201901071828425_Changed model validation 2.Designer.cs">
+      <DependentUpon>201901071828425_Changed model validation 2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901071835179_Changed model validation 3.cs" />
+    <Compile Include="Migrations\201901071835179_Changed model validation 3.Designer.cs">
+      <DependentUpon>201901071835179_Changed model validation 3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NinjectDependencyResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuizAppDbContext.cs" />
+    <Compile Include="Repositories\Abstract\IAnswerRepository.cs" />
     <Compile Include="Repositories\Abstract\IQuestionRepository.cs" />
+    <Compile Include="Repositories\Concrete\AnswerRepository.cs" />
     <Compile Include="Repositories\Concrete\QuestionRepository.cs" />
     <Compile Include="Services\Abstract\IQuestionService.cs" />
     <Compile Include="Services\Concrete\QuestionService.cs" />
@@ -205,11 +231,13 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Questions\Index.cshtml" />
     <Content Include="Views\Questions\Create.cshtml" />
+    <Content Include="Views\Answers\Index.cshtml" />
+    <Content Include="Views\Answers\Create.cshtml" />
+    <Content Include="Views\Answers\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Answers\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -227,6 +255,24 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201901041839176_Initial.resx">
       <DependentUpon>201901041839176_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901061925403_Changed answer model.resx">
+      <DependentUpon>201901061925403_Changed answer model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901061928339_Second migration.resx">
+      <DependentUpon>201901061928339_Second migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901071809333_Added model validation.resx">
+      <DependentUpon>201901071809333_Added model validation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901071819498_Changed model validation.resx">
+      <DependentUpon>201901071819498_Changed model validation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901071828425_Changed model validation 2.resx">
+      <DependentUpon>201901071828425_Changed model validation 2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901071835179_Changed model validation 3.resx">
+      <DependentUpon>201901071835179_Changed model validation 3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

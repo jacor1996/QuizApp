@@ -23,28 +23,28 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Text)
-        </td>
-        <td>
-            <ol>
-                @foreach (var a in item.Answers)
-                {
-                    <li>@a.Text</li>
-                }
-            </ol>
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CorrectAnswer.Text)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Text)
+            </td>
+            <td>
+                <ol>
+                    @foreach (var a in item.Answers)
+                    {
+                        <li>@a.Text</li>
+                    }
+                </ol>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CorrectAnswer.Text)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            </td>
+        </tr>
+    }
 
 </table>

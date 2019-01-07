@@ -10,11 +10,11 @@ namespace QuizApp.Repositories.Concrete
 {
     public class QuestionRepository : IQuestionRepository
     {
-        private QuizAppDbContext _context;
+        private readonly QuizAppDbContext _context;
 
-        public QuestionRepository()
+        public QuestionRepository(QuizAppDbContext context)
         {
-            _context = new QuizAppDbContext();    
+            _context = context;
         }
 
         public IEnumerable<Question> GetAll()
@@ -47,12 +47,25 @@ namespace QuizApp.Repositories.Concrete
 
         public void Edit(Question question)
         {
-            throw new NotImplementedException();
+            if (question == null)
+                throw new ArgumentException();
+
+            Question questionToEdit = Get(question.Id);
+
+            if (questionToEdit != null)
+            {
+                questionToEdit.Text = question.Text;
+                questionToEdit.CorrectAnswer = question.CorrectAnswer;
+                questionToEdit.Answers = question.Answers;
+
+                _context.SaveChanges();
+            }
         }
 
         public void Remove(int id)
         {
             Question question = Get(id);
+
             if (question != null)
             {
                 _context.Questions.Remove(question);
