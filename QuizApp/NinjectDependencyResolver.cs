@@ -34,7 +34,7 @@ namespace QuizApp
         public void AddBindings()
         {
             _kernel.Bind<QuizAppDbContext>()
-                .ToSelf();
+                .ToSelf().InSingletonScope();
 
             _kernel.Bind<IQuestionRepository>()
                 .To<QuestionRepository>();

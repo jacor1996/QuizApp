@@ -4,17 +4,21 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using QuizApp.Entities;
+using QuizApp.Models;
 using QuizApp.Repositories.Abstract;
+using QuizApp.Services.Abstract;
 
 namespace QuizApp.Controllers
 {
     public class AnswersController : Controller
     {
         private readonly IAnswerRepository _repository;
+        private readonly IAnswerService _answerService;
 
-        public AnswersController(IAnswerRepository repository)
+        public AnswersController(IAnswerRepository repository, IAnswerService answerService)
         {
             _repository = repository;
+            _answerService = answerService;
         }
 
         // GET: Answers
@@ -65,7 +69,6 @@ namespace QuizApp.Controllers
             return View(answer);
         }
 
-        [HttpDelete]
         public ActionResult Delete(int id)
         {
             Answer answer = _repository.Get(id);
@@ -77,6 +80,27 @@ namespace QuizApp.Controllers
             }
 
             return HttpNotFound("Answer with specified id does not exist.");
+        }
+
+        public ActionResult CreateAnswers()
+        {
+            List<Answer> answers = new List<Answer>(4)
+            {
+                new Answer(),
+                new Answer(),
+                new Answer(),
+                new Answer()
+            };
+            QuestionModelView model = new QuestionModelView {Answers = answers, Question = new Question()};
+            ViewBag.AnswersSelectList = _answerService.GetAnswersSelectList();
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult CreateAnswers(QuestionModelView modelView)
+        {
+
+            return View(modelView);
         }
     }
 }

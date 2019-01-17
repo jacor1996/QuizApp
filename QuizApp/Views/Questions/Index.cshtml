@@ -18,7 +18,7 @@
             @Html.DisplayNameFor(model => model.Answers)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CorrectAnswer)
+            @Html.DisplayNameFor(model => model.CorrectAnswerId)
         </th>
         <th></th>
     </tr>
@@ -37,7 +37,7 @@
                 </ol>
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CorrectAnswer.Text)
+                @Html.DisplayFor(modelItem => item.CorrectAnswerId)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |

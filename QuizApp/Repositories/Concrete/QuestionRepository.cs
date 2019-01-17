@@ -20,7 +20,6 @@ namespace QuizApp.Repositories.Concrete
         public IEnumerable<Question> GetAll()
         {
             return _context.Questions
-                .Include(q => q.CorrectAnswer)
                 .Include(q => q.Answers)
                 .ToList();
         }
@@ -29,7 +28,6 @@ namespace QuizApp.Repositories.Concrete
         {
             return _context.Questions.Where(q => q.Id == id)
                 .Include(q => q.Answers)
-                .Include(q => q.CorrectAnswer)
                 .FirstOrDefault();
         }
 
@@ -55,7 +53,7 @@ namespace QuizApp.Repositories.Concrete
             if (questionToEdit != null)
             {
                 questionToEdit.Text = question.Text;
-                questionToEdit.CorrectAnswer = question.CorrectAnswer;
+                questionToEdit.CorrectAnswerId = question.CorrectAnswerId;
                 questionToEdit.Answers = question.Answers;
 
                 _context.SaveChanges();

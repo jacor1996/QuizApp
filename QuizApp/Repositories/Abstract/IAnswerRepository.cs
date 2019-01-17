@@ -11,7 +11,7 @@ namespace QuizApp.Repositories.Abstract
     {
         IEnumerable<Answer> GetAll();
         Answer Get(int id);
-        void Insert(Answer answer);
+        int Insert(Answer answer);
         void Edit(Answer answer);
         void Remove(int id);
     }

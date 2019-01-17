@@ -26,7 +26,7 @@ namespace QuizApp.Repositories.Concrete
             return _context.Answers.FirstOrDefault(x => x.Id == id);
         }
 
-        public void Insert(Answer answer)
+        public int Insert(Answer answer)
         {
             if (answer == null)
                 throw new ArgumentNullException();
@@ -36,6 +36,8 @@ namespace QuizApp.Repositories.Concrete
                 _context.Answers.Add(answer);
                 _context.SaveChanges();
             }
+
+            return answer.Id;
         }
 
         public void Edit(Answer answer)

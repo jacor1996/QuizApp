@@ -11,18 +11,19 @@ namespace QuizApp.Services.Concrete
     {
         public bool ContainsCorrectAnswer(Question question)
         {
-            if (question == null)
-            {
-                throw new ArgumentNullException(nameof(question), "Question is null!");
-            }
+            //if (question == null)
+            //{
+            //    throw new ArgumentNullException(nameof(question), "Question is null!");
+            //}
 
-            foreach (var q in question.Answers)
-            {
-                if (string.Equals(q.Text, question.CorrectAnswer.Text, StringComparison.CurrentCultureIgnoreCase))
-                {
-                    return true;
-                }
-            }
+            //foreach (var q in question.Answers)
+            //{
+                
+            //    if (string.Equals(q.Text, question.CorrectAnswer.Text, StringComparison.CurrentCultureIgnoreCase))
+            //    {
+            //        return true;
+            //    }
+            //}
 
             return false;
         }

@@ -24,5 +24,6 @@ namespace QuizApp.Services.Concrete
 
             return selectList;
         }
+
     }
 }

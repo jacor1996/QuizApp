@@ -17,13 +17,13 @@ namespace QuizApp
                 {
                     Id = 1,
                     Text = "How many fingers do people have?",
-                    CorrectAnswer = new Answer { Text = "20" },
+                    CorrectAnswerId = 1,
                     Answers = new List<Answer>
                     {
-                        new Answer { Text = "1" },
-                        new Answer { Text = "20" },
-                        new Answer { Text = "21" },
-                        new Answer { Text = "19" },
+                        new Answer { Id = 1, Text = "1" },
+                        new Answer { Id = 2,Text = "20" },
+                        new Answer { Id = 3,Text = "21" },
+                        new Answer { Id = 4,Text = "19" },
                     }
                 },
 
@@ -31,13 +31,13 @@ namespace QuizApp
                 {
                     Id = 2,
                     Text = "The capitol of Poland is:",
-                    CorrectAnswer = new Answer { Text = "Warsaw" },
+                    CorrectAnswerId = 5,
                     Answers = new List<Answer>
                     {
-                        new Answer { Text = "Wroclaw" },
-                        new Answer { Text = "Krakow" },
-                        new Answer { Text = "Katowice" },
-                        new Answer { Text = "Warsaw" }
+                        new Answer {Id = 5, Text = "Wroclaw" },
+                        new Answer {Id = 6, Text = "Krakow" },
+                        new Answer {Id = 7, Text = "Katowice" },
+                        new Answer {Id = 8, Text = "Warsaw" }
                     }
                 },
 
@@ -45,13 +45,13 @@ namespace QuizApp
                 {
                     Id = 3,
                     Text = "Who is the biggest drunk in Trailer Park Boys Tv series?",
-                    CorrectAnswer = new Answer { Text = "Jim Lahey" },
+                    CorrectAnswerId = 9,
                     Answers = new List<Answer>
                     {
-                        new Answer { Text = "Jim Lahey" },
-                        new Answer { Text = "Randy Bobandy" },
-                        new Answer { Text = "Ricky" },
-                        new Answer { Text = "Bubbles" }
+                        new Answer {Id = 9, Text = "Jim Lahey" },
+                        new Answer {Id = 10, Text = "Randy Bobandy" },
+                        new Answer {Id = 11, Text = "Ricky" },
+                        new Answer {Id = 12, Text = "Bubbles" }
                     }
                 },
 
@@ -59,13 +59,13 @@ namespace QuizApp
                 {
                     Id = 4,
                     Text = "Which data type can store the biggest number?",
-                    CorrectAnswer = new Answer { Text = "int" },
+                    CorrectAnswerId = 13,
                     Answers = new List<Answer>
                     {
-                        new Answer { Text = "int" },
-                        new Answer { Text = "string" },
-                        new Answer { Text = "long" },
-                        new Answer { Text = "float" }
+                        new Answer {Id = 13, Text = "int" },
+                        new Answer {Id = 14, Text = "string" },
+                        new Answer {Id = 15, Text = "long" },
+                        new Answer {Id = 16, Text = "float" }
                     }
                 }
             };
